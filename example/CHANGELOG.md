@@ -1,5 +1,9 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 1.2.2
+
+- Only support armhf and armv7
+
 ## 1.2.1
 
 - Bumping patch to force a new container build
