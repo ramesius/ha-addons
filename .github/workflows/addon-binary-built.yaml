@@ -1,0 +1,38 @@
+name: Addon binary built notification
+
+on:
+  repository_dispatch:
+    types: [new-addon-binary-built]
+    branches:
+      - main
+
+jobs:
+  update-addon:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Output payload
+        run: |
+          echo "Payload: ${{ toJson(github.event.client_payload) }}"
+
+      - name: Get information
+        id: info
+        uses: home-assistant/actions/helpers/info@master
+        with:
+          path: "./${{ github.event.client_payload.addon }}"
+
+      - name: Update addon version
+        run: |
+          CURRENT_VERSION=$(grep "^version:" "./${{ github.event.client_payload.addon }}/config.yaml" | cut -d' ' -f2)
+          NEW_PATCH=$(echo $CURRENT_VERSION | awk -F. '{print $1"."$2"."$3+1}')
+          sed -i "s/^version:.*/version: $NEW_PATCH/" "./${{ github.event.client_payload.addon }}/config.yaml"
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add "./${{ github.event.client_payload.addon }}/config.yaml"
+          git commit -m "Update ${{ github.event.client_payload.addon }}. New binary version ${{ github.event.client_payload.version }}"
+          git push
