@@ -1,0 +1,12 @@
+name: "Liam Yoto sync tool"
+description: "Liam Yoto sync tool"
+version: "0.1.0"
+slug: "liam_yoto_sync_tool"
+init: false
+arch:
+  - aarch64
+startup: services
+homeassistant_api: false
+map:
+  - type: media
+    read_only: False
