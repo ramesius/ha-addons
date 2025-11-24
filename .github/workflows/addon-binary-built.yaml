@@ -30,7 +30,7 @@ jobs:
 
       - name: Update addon version
         run: |
-          CURRENT_VERSION=$(grep "^version:" "./${{ github.event.client_payload.addon }}/config.yaml" | cut -d' ' -f2)
+          CURRENT_VERSION=$(grep "^version:" "./${{ github.event.client_payload.addon }}/config.yaml" | cut -d' ' -f2 | tr -d '"')
           NEW_PATCH=$(echo $CURRENT_VERSION | awk -F. '{print $1"."$2"."$3+1}')
           sed -i "s/^version:.*/version: \"$NEW_PATCH\"/" "./${{ github.event.client_payload.addon }}/config.yaml"
 
