@@ -30,7 +30,7 @@ jobs:
         run: |
           CURRENT_VERSION=$(grep "^version:" "./${{ github.event.client_payload.addon }}/config.yaml" | cut -d' ' -f2)
           NEW_PATCH=$(echo $CURRENT_VERSION | awk -F. '{print $1"."$2"."$3+1}')
-          sed -i "s/^version:.*/version: $NEW_PATCH/" "./${{ github.event.client_payload.addon }}/config.yaml"
+          sed -i "s/^version:.*/version: \"$NEW_PATCH\"/" "./${{ github.event.client_payload.addon }}/config.yaml"
 
       - name: Commit changes
         run: |
