@@ -104,6 +104,17 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Download ${{ matrix.addon }} CLI release
+        id: download_cli
+        if: steps.check.outputs.build_arch == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release download "${{ matrix.addon }}" \
+          --repo "${{ github.repository_owner }}/${{ matrix.addon }}" \
+          --tag "${{ steps.info.outputs.version }}" \
+          --dir ./${{ matrix.addon }}/usr/bin/
+
       - name: Build ${{ matrix.addon }} add-on
         if: steps.check.outputs.build_arch == 'true'
         uses: home-assistant/builder@2025.09.0

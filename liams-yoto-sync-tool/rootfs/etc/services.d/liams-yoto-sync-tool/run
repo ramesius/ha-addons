@@ -1,0 +1,19 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Start the example service
+# s6-overlay docs: https://github.com/just-containers/s6-overlay
+# ==============================================================================
+
+# Declare variables
+declare config_file_path
+declare track_cache_path
+
+## Get the 'config_file_path' key from the user config options.
+config_file_path=$(bashio::config 'config_file_path')
+track_cache_path=$(bashio::config 'track_cache_path')
+
+## Print the message the user supplied, defaults to "Hello World..."
+bashio::log.info "${message:="Hello World..."}"
+
+## Run the tool
+exec /usr/bin/liams-yoto-sync-tool run --config "${config_file_path}" --track-cache "${track_cache_path}"

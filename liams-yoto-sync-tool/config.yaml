@@ -10,3 +10,7 @@ homeassistant_api: false
 map:
   - type: media
     read_only: False
+schema:
+  config_file_path: "str"
+  track_cache_path: "str?"
+image: "ghcr.io/ramesius/{arch}-liam-yoto-sync-tool"
