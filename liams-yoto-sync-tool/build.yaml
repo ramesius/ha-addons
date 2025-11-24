@@ -8,3 +8,4 @@ labels:
   org.opencontainers.image.licenses: "Proprietary"
 args:
   TEMPIO_VERSION: "2021.09.0"
+  CLI_NAME: "liams-yoto-sync-tool"
