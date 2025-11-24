@@ -108,7 +108,7 @@ jobs:
         id: download_cli
         if: steps.check.outputs.build_arch == 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT }}
         run: |
           gh release \
           --repo "${{ github.repository_owner }}/${{ matrix.addon }}" \
