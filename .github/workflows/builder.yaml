@@ -110,9 +110,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release download "${{ matrix.addon }}" \
+          gh release \
           --repo "${{ github.repository_owner }}/${{ matrix.addon }}" \
-          --tag "${{ steps.info.outputs.version }}" \
+          download "${{ steps.info.outputs.version }}" \
           --dir ./${{ matrix.addon }}/usr/bin/
 
       - name: Build ${{ matrix.addon }} add-on
