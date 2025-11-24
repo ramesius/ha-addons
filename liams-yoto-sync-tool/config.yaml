@@ -1,7 +1,7 @@
-name: "Liam Yoto sync tool"
-description: "Liam Yoto sync tool"
+name: "Liams Yoto sync tool"
+description: "Liams Yoto sync tool"
 version: "0.1.8"
-slug: "liam_yoto_sync_tool"
+slug: "liams_yoto_sync_tool"
 init: false
 arch:
   - aarch64
@@ -13,4 +13,4 @@ map:
 schema:
   config_file_path: "str"
   track_cache_path: "str?"
-image: "ghcr.io/ramesius/{arch}-liam-yoto-sync-tool"
+image: "ghcr.io/ramesius/{arch}-liams-yoto-sync-tool"
