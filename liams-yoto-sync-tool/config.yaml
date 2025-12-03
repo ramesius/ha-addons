@@ -15,6 +15,7 @@ map:
 schema:
   config_file_path: "str"
   track_cache_path: "str?"
+  auth_store_path: "str?"
   spotify_client_id: str
   yoto_dev_client_id: str
 image: "ghcr.io/ramesius/{arch}-liams-yoto-sync-tool"
