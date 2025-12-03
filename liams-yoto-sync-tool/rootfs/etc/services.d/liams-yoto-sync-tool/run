@@ -16,4 +16,8 @@ track_cache_path=$(bashio::config 'track_cache_path')
 bashio::log.info "${message:="Starting Liam's Yoto Sync Tool..."}"
 
 ## Run the tool
-exec /usr/bin/liams-yoto-sync-tool run --config "${config_file_path}" --track-cache-path "${track_cache_path}"
+if bashio::config.has_value 'track_cache_path'; then
+    exec /usr/bin/liams-yoto-sync-tool run --config "${config_file_path}" --track-cache-path "${track_cache_path}"
+else
+    exec /usr/bin/liams-yoto-sync-tool run --config "${config_file_path}"
+fi
