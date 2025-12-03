@@ -113,7 +113,7 @@ jobs:
         run: |
           gh release \
           --repo "${{ github.repository_owner }}/${{ matrix.addon }}" \
-          download v"${{ steps.info.outputs.cli_version }}" \
+          download v"${{ steps.check.outputs.cli_version }}" \
           --dir ./${{ matrix.addon }}/rootfs/usr/bin
 
       - name: Build ${{ matrix.addon }} add-on
