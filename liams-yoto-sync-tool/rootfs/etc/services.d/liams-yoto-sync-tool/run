@@ -12,6 +12,15 @@ declare track_cache_path
 config_file_path=$(bashio::config 'config_file_path')
 track_cache_path=$(bashio::config 'track_cache_path')
 
+## Set dummy environment variables for OAuth2 flows not used by the tool
+export SPOTIFY_REDIRECT_URI="DUMMY"
+export YOTO_DEV_CLIENT_ID="$(bashio::config 'yoto_dev_client_id')"
+export SPOTIFY_CLIENT_ID="$(bashio::config 'spotify_client_id')"
+
+# List media mounts for debugging
+bashio::log.info "Listing /media mounts for debugging purposes..."
+ls /media
+
 ## Print the message the user supplied, defaults to "Hello World..."
 bashio::log.info "${message:="Starting Liam's Yoto Sync Tool..."}"
 

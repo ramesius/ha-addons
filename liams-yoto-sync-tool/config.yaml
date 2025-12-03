@@ -1,6 +1,6 @@
 name: "Liams Yoto sync tool"
 description: "Liams Yoto sync tool."
-version: "0.1.11"
+version: "0.1.12"
 slug: "liams_yoto_sync_tool"
 init: false
 arch:
@@ -13,4 +13,6 @@ map:
 schema:
   config_file_path: "str"
   track_cache_path: "str?"
+  spotify_client_id: str
+  yoto_dev_client_id: str
 image: "ghcr.io/ramesius/{arch}-liams-yoto-sync-tool"
