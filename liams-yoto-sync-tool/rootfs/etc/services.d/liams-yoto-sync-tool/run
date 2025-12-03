@@ -12,6 +12,11 @@ declare track_cache_path
 config_file_path=$(bashio::config 'config_file_path')
 track_cache_path=$(bashio::config 'track_cache_path')
 auth_store_path=$(bashio::config 'auth_store_path')
+log_level=$(bashio::config 'log_level')
+
+if bashio::config.has_value 'log_level'; then
+    export RUST_LOG="${log_level}"
+fi
 
 export SPOTIFY_REDIRECT_URI="http://localhost:8888/callback" # This is required but is unused in the addon context
 export YOTO_DEV_CLIENT_ID="$(bashio::config 'yoto_dev_client_id')"
