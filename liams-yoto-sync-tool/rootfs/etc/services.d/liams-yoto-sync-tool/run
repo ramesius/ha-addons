@@ -13,8 +13,7 @@ config_file_path=$(bashio::config 'config_file_path')
 track_cache_path=$(bashio::config 'track_cache_path')
 auth_store_path=$(bashio::config 'auth_store_path')
 
-## Set dummy environment variables for OAuth2 flows not used by the tool
-export SPOTIFY_REDIRECT_URI="DUMMY"
+export SPOTIFY_REDIRECT_URI="http://localhost:8888/callback" # This is required but is unused in the addon context
 export YOTO_DEV_CLIENT_ID="$(bashio::config 'yoto_dev_client_id')"
 export SPOTIFY_CLIENT_ID="$(bashio::config 'spotify_client_id')"
 
