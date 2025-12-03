@@ -13,7 +13,7 @@ config_file_path=$(bashio::config 'config_file_path')
 track_cache_path=$(bashio::config 'track_cache_path')
 
 ## Print the message the user supplied, defaults to "Hello World..."
-bashio::log.info "${message:="Hello World..."}"
+bashio::log.info "${message:="Starting Liam's Yoto Sync Tool..."}"
 
 ## Run the tool
-exec /usr/bin/liams-yoto-sync-tool run --config "${config_file_path}" --track-cache "${track_cache_path}"
+exec /usr/bin/liams-yoto-sync-tool run --config "${config_file_path}" --track-cache-path "${track_cache_path}"
