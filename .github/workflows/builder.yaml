@@ -117,7 +117,7 @@ jobs:
           fi
           gh release \
           --repo "${{ github.repository_owner }}/${{ matrix.addon }}" \
-            download "$TAG" \
+          download "${TAG}" \
           --dir ./${{ matrix.addon }}/rootfs/usr/bin
 
       - name: Build ${{ matrix.addon }} add-on
