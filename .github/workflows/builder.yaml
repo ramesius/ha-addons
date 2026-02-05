@@ -113,7 +113,7 @@ jobs:
         run: |
           TAG="v${{ steps.check.outputs.cli_version }}"
           if [[ "${{ matrix.addon }}" == "spotify-frame" ]]; then
-              TAG="Server server/${TAG}"
+              TAG="server/${TAG}"
           fi
           gh release \
           --repo "${{ github.repository_owner }}/${{ matrix.addon }}" \
