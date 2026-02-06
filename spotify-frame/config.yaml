@@ -1,12 +1,12 @@
 name: "spotify-frame"
 description: "Server side for spotify-frame"
-version: "0.1.28"
+version: "0.1.29"
 slug: "spotify_frame"
 init: false
 arch:
   - aarch64
 startup: application
-homeassistant_api: false
+homeassistant_api: true
 services:
   - mqtt:need
 ports:
