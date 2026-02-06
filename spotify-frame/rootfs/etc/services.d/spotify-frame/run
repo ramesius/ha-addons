@@ -22,6 +22,8 @@ export MQTT_PASSWORD="$(bashio::services mqtt "password")"
 export MQTT_CLIENT_ID="$(bashio::config 'mqtt_client_id')"
 export MQTT_KEEP_ALIVE_SECS="$(bashio::config 'mqtt_keep_alive_secs')"
 
+export MEDIA_PLAYER_PROXY_BASE_URL="$(bashio::config 'media_player_proxy_base_url')"
+
 echo "MQTT_BROKER_HOST: ${MQTT_BROKER_HOST}"
 echo "MQTT_USERNAME: ${MQTT_USERNAME}"
 
