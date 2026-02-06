@@ -1,17 +1,16 @@
 name: "spotify-frame"
 description: "Server side for spotify-frame"
-version: "0.1.31"
+version: "0.1.32"
 slug: "spotify_frame"
 init: false
 arch:
   - aarch64
 startup: application
 homeassistant_api: true
-host_network: true
 services:
   - mqtt:need
 ports:
-  8000/tcp: 9000
+  8000/tcp: 8000
 map:
   - type: addon_config
     read_only: False
