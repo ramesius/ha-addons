@@ -5,24 +5,23 @@ slug: "spotify_frame"
 init: false
 arch:
   - aarch64
-startup: services
+startup: application
 homeassistant_api: false
+services:
+  - mqtt:need
+ports:
+  9000/tcp: 9000
 map:
   - type: addon_config
     read_only: False
 schema:
   ota_github_repo: str
-  ota_github_token: str
-  github_token: str
+  github_token: password
   ota_storage_dir: str
   ota_host_ipv4: str
   ota_http_port: str
   ota_poll_interval_secs: str
-  mqtt_broker_host: str
-  mqtt_broker_port: str
   mqtt_client_id: str
-  mqtt_username: str
-  mqtt_password: str
   mqtt_keep_alive_secs: str
   log_level: str?
 image: "ghcr.io/ramesius/{arch}-spotify-frame"
