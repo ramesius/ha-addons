@@ -1,6 +1,6 @@
 name: "spotify-frame"
 description: "Server side for spotify-frame"
-version: "0.1.25"
+version: "0.1.26"
 slug: "spotify_frame"
 init: false
 arch:
